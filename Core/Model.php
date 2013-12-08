@@ -1,9 +1,17 @@
 <?php
 class Model {
 
+	public $connected = false;
+	static $pdo;
+
+	/* ############################# 
+	## Constructeur : Créé une instance oracle à partir des variables de sessions
+	## @return: retourne l'instance oracle ou false si un probleme survient.
+	*/ #############################
 
 	public function __construct(){
 		if(count($_SESSION)>0){
+			echo 'Connexion à la BDD';
 			extract($_SESSION);
 			try {
 				$tns = " 
@@ -16,12 +24,21 @@ class Model {
 				    )
 				  )
 		       ";
-				$conn = new PDO("oci:dbname=".$tns,$user,$password);
-				return $conn;
-			} catch( Exception $e){
-				Dispatcher::E404($e->getMessage());
+				$pdo = new PDO("oci:dbname=".$tns,$user,$password);
+				self::$pdo = $pdo;
+				$this->connected = true;
+			} catch(Exception $e){
+				$e->getMessage();
 			}
+			
 		}
+	}
+
+	public function execute($query){
+
+		$res = self::$pdo->query($query);
+		$ret = $res->fetchAll(PDO::FETCH_OBJ);
+		return $ret;
 	}
 
 

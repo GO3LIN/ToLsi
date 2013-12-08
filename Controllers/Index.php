@@ -12,9 +12,14 @@ class Index extends Controller{
 
 
 	public function login(){
-		$session = new Session();
 		$_SESSION = $_POST;
-		new Model();
+		$model = new Model();
+		if($model->connected){
+			$this->render('Logged');
+		} else 
+		$this->render('Login');
+
+
 	}
 
 }

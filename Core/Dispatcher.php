@@ -21,6 +21,7 @@ class Dispatcher {
 		$this->params = (!current($request)) ? array() : $request;
 
 		$this->callController();
+
 	}
 
 	public function callController(){

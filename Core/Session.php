@@ -7,10 +7,11 @@ class Session {
 
 	
 
-	public function __destruct(){
+	public function deconnexion(){
 		$_SESSION = null;
 		unset($_SESSION);
 	}
 
 }
+new Session();
 ?>
