@@ -11,7 +11,7 @@ class Model {
 
 	public function __construct(){
 		if(count($_SESSION)>0){
-			echo 'Connexion à la BDD';
+			//echo 'Connexion à la BDD';
 			extract($_SESSION);
 			try {
 				$tns = " 

@@ -6,7 +6,10 @@ class Index extends Controller{
 	}
 
 	public function index(){
-		$this->render("Login");
+		if(count($_SESSION)>0)
+			$this->render("Logged");
+		else
+			$this->render("Login");
 	}
 
 
@@ -15,7 +18,8 @@ class Index extends Controller{
 		$_SESSION = $_POST;
 		$model = new Model();
 		if($model->connected){
-			$this->render('Logged');
+			//$this->redirect("Index");
+			header("Location: ".ROOT_URL);
 		} else 
 		$this->render('Login');
 

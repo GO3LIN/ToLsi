@@ -1,6 +1,8 @@
 <?php
 class Controller {
 
+	static $var;
+
 	public function __construct(){
 		
 	}
@@ -55,6 +57,10 @@ class Controller {
 			if(!isset($var) OR empty($var))
 				$this->setFlash(ucfirst($var));
 		}
+	}
+
+	public function setVar($var){
+		self::$var = $var;
 	}
 
 	public function setFlash($message){

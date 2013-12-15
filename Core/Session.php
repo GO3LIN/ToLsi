@@ -7,9 +7,8 @@ class Session {
 
 	
 
-	public function deconnexion(){
-		$_SESSION = null;
-		unset($_SESSION);
+	static function deconnexion(){
+		session_destroy();
 	}
 
 }

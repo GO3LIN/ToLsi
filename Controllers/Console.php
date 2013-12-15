@@ -11,22 +11,25 @@ class Console extends Controller {
 
 		$attributs = get_object_vars($ret[0]);
 		
-		echo '<table><tr>';
+		$data = '<table class="table table-condensed table-hover"><thead>';
 		foreach($attributs as $k=>$v){
-			echo '<th>'.$k.'</th>';
+			$data .= '<th>'.$k.'</th>';
 		}
-		echo '</tr>';
+		$data.= '</thead><tbody>';
 
 		foreach($ret as $r){
-			echo '<tr>';
+			$data .= '<tr>';
 			foreach($attributs as $k=>$v){
-				echo '<td>'.$r->$k.'</td>';
+				$data.= '<td>'.$r->$k.'</td>';
 			}
-			echo '</tr>';
+			$data.= '</tr>';
 		}
 
-		echo '</table>';
+		$data.= '</tbody></table>';
 
+		$this->setVar($data);
+
+		$this->render('Tableau');
 	}
 
 }

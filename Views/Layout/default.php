@@ -20,6 +20,7 @@
 <!-- Style CSS -->
 <link href="<?php echo HTDOCS_URL.'/'; ?>css/bootstrap.css" media="screen" rel="stylesheet">
 <link href="<?php echo HTDOCS_URL.'/'; ?>style.css" media="screen" rel="stylesheet">
+<link href="<?php echo HTDOCS_URL.'/'; ?>flashInfos.css" media="screen" rel="stylesheet">
 
 <!-- scripts -->
 <script src="<?php echo HTDOCS_URL.'/'; ?>js/general.js"></script>
@@ -27,6 +28,8 @@
 <script type="text/javascript" src="<?php echo HTDOCS_URL.'/'; ?>js/jquery.powerful-placeholder.min.js"></script>
 <!-- Include all needed stylesheets and scripts here -->
 <link href="<?php echo HTDOCS_URL.'/'; ?>css/flashInfos.css" media="screen" rel="stylesheet">
+<script src="<?php echo HTDOCS_URL.'/'; ?>js/app.js"></script>
+
 
 
 

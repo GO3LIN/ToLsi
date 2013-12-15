@@ -1,4 +1,3 @@
-.infos-boxe{
-	position: absolute;
-	top: 0;
+.userLabel {
+	line-height: 30px; text-align: right;
 }
