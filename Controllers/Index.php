@@ -6,8 +6,12 @@ class Index extends Controller{
 	}
 
 	public function index(){
-		if(count($_SESSION)>0)
+		if(count($_SESSION)>0){
+			$user = $this->loadModel("User");
+			$users = $user->findAll();
+			$this->setVar("users", $users);
 			$this->render("Logged");
+		}
 		else
 			$this->render("Login");
 	}

@@ -29,6 +29,8 @@
 <!-- Include all needed stylesheets and scripts here -->
 <link href="<?php echo HTDOCS_URL.'/'; ?>css/flashInfos.css" media="screen" rel="stylesheet">
 <script src="<?php echo HTDOCS_URL.'/'; ?>js/app.js"></script>
+<link rel="stylesheet" href="css/chosen.css">
+<script src="js/jquery.chosen.min.js" type="text/javascript"></script>
 
 
 

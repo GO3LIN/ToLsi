@@ -27,7 +27,7 @@ class Console extends Controller {
 
 		$data.= '</tbody></table>';
 
-		$this->setVar($data);
+		$this->setVar("console", $data);
 
 		$this->render('Tableau');
 	}

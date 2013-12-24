@@ -2,6 +2,7 @@
 class Model {
 
 	public $connected = false;
+	public $table;
 	static $pdo;
 
 	/* ############################# 
@@ -34,11 +35,21 @@ class Model {
 		}
 	}
 
+	public function findAll(){
+		$query = "SELECT * FROM ".$this->table;
+		$res = self::$pdo->query($query);
+		return $res->fetchAll(PDO::FETCH_OBJ);
+	}
+
 	public function execute($query){
 
 		$res = self::$pdo->query($query);
 		$ret = $res->fetchAll(PDO::FETCH_OBJ);
 		return $ret;
+	}
+
+	public function executeUpdate($requete){
+		return self::$pdo->query($requete);
 	}
 
 

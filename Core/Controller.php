@@ -1,7 +1,7 @@
 <?php
 class Controller {
 
-	static $var;
+	static $vars = array();
 
 	public function __construct(){
 		
@@ -31,6 +31,7 @@ class Controller {
 
 		if(file_exists($viewPath)){
 			ob_start();
+			extract(self::$vars);
 			require($viewPath);
 			$content_for_layout = ob_get_clean();
 			require(ROOT_DIR.DS.'Views'.DS.'Layout'.DS.'default.php');
@@ -59,13 +60,17 @@ class Controller {
 		}
 	}
 
-	public function setVar($var){
-		self::$var = $var;
+	public function setVar($nom, $var){
+		self::$vars[$nom] = $var;
 	}
 
-	public function setFlash($message){
-		
-		
+	public function loadModel($modelName){
+		$modelPath = ROOT_DIR.DS.'Models'.DS.$modelName.'.php';
+		$modelClass = $modelName.'Model';
+		if(file_exists($modelPath)){
+			require_once($modelPath);
+			return new $modelClass();
+		}
 	}
 
 	public function index(){

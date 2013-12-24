@@ -1,3 +1,3 @@
 <?php
-echo Controller::$var;
+echo $console;
 ?>
