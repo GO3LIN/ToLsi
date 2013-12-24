@@ -7,4 +7,9 @@ $(document).ready(function(){
 		i++;
 		return false;
 	});
+
+	$("#closeButton").click(function(e){
+		e.preventDefault();
+		$("#flashAlert").fadeOut(1000);
+	})
 });

@@ -4,4 +4,13 @@
 .errorField {
 	line-height: 30px;
 	color: red;
+	display: none;
+}
+.#flashAlert {
+	display: none;
+}
+.close {
+	background: url('../images/icons/deleteW.png') no-repeat;
+	margin-left: 40px;
+	margin-top: 7px;
 }

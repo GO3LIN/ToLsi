@@ -83,6 +83,7 @@
 <div class="container">
   <div class="row">
     
+    <?php Session::flash(); ?>
       <!-- content-->
       <!--
       <div class="content" role="main">

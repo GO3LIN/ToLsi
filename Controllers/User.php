@@ -3,6 +3,9 @@ class User extends Controller{
 
 	public function add(){
 		if(count($_POST)>0){
+
+
+
 			if(!empty($_POST['username']) && !empty($_POST['password'])) {
 				$requete = "CREATE USER ".$_POST['username']." IDENTIFIED BY ".$_POST['password'];
 				if(isset($_POST['defaultTablespace']) && !empty($_POST['defaultTablespace']))
@@ -36,7 +39,14 @@ class User extends Controller{
 				}
 				
 				$user = $this->loadModel("User");
-				$user->executeUpdate($requete);
+				try {
+					$res = $user->executeUpdate($requete);
+					Session::setFlash("Utilisateur créé avec succès.", "success");
+				} catch(PDOException $e){
+					Session::setFlash($e->getMessage());
+				}
+
+				header("Location: ".ROOT_URL);
 			}
 
 		}

@@ -26,9 +26,10 @@ class Model {
 				  )
 		       ";
 				$pdo = new PDO("oci:dbname=".$tns,$user,$password);
+				$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				self::$pdo = $pdo;
 				$this->connected = true;
-			} catch(Exception $e){
+			} catch(PDOException $e){
 				$e->getMessage();
 			}
 			
