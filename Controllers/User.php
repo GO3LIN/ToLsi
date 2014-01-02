@@ -52,5 +52,19 @@ class User extends Controller{
 		}
 	}
 
+
+	public function delete($username){
+		if(empty($username))
+			return false;
+
+		$user = $this->loadModel("User");
+		if($user->deleteUser($username))
+			Session::setFlash("Utilisateur '$username' supprimé avec succès.", "success");
+
+		header("Location: ".ROOT_URL);
+
+
+	}
+
 }
 ?>

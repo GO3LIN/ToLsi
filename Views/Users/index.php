@@ -128,10 +128,10 @@
 						echo '<td>'.$user->$k.'</td>';
 					}
 					echo '<td>
-					<a href="'.ROOT_URL.'/User/edit/'.$user->USER_ID.'">
+					<a href="'.ROOT_URL.'/User/edit/'.$user->USERNAME.'">
 						<img src="'.HTDOCS_URL.'/images/icons/edit.png" alt="Modifier">
 					</a>
-					<a href="'.ROOT_URL.'/User/delete/'.$user->USER_ID.'">
+					<a href="'.ROOT_URL.'/User/delete/'.$user->USERNAME.'" onClick="return confirm(\'Sure?\'); ">
 						<img src="'.HTDOCS_URL.'/images/icons/delete.png" alt="Supprimer">
 					</a>
 					</td>';
