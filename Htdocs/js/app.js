@@ -11,5 +11,21 @@ $(document).ready(function(){
 	$("#closeButton").click(function(e){
 		e.preventDefault();
 		$("#flashAlert").slideUp(1000);
-	})
+	});
+
+
+	$("#userListTable .userFillFields").click(function(e){
+		e.preventDefault();
+		$("html, body").animate({scrollTop: 0}, 3000);   
+		var username = $(this).attr('value');
+		$.post("user/fillFields/", {username: username},  function(data){
+			$("#userTitle").html("Modifier un utilisateur");
+			var form = $("#userForm");
+			form.find("#sendButton").val("Modifier");
+			form.find("#username").val(data.USERNAME);
+			form.find("#profile").val(data.PROFILE);
+			form.find("#defaultTablespace").val(data.DEFAULT_TABLESPACE);
+			form.find("#tempTablespace").val(data.TEMPORARY_TABLESPACE);
+		}, "json");
+	});
 });

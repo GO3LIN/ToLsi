@@ -1,16 +1,17 @@
-<h4>Ajouter un utilisateur</h4><br>
+<h4 id="userTitle">Ajouter un utilisateur</h4><br>
 <p>Les champ marqué d'un (*) sont obligatoire :</p>
 <div class="errors"></div>
 <div class="row">
 	<div class="col-sm-12">
-		<form method="post" action="<?php echo ROOT_URL.'/user/add';?>">
+		<form method="post" action="<?php echo ROOT_URL.'/user/add';?>" id="userForm">
 			<fieldset><legend>Information de connexion</legend>
 			<div class="row">
 				<div class="col-sm-3 userLabel">
 					<label for="username">(*) Nom d'utilisateur:</label>
 				</div>
 				<div class="col-sm-5">
-					<input type="text" name="username" id="username" class="inputtext input_middle required">
+					<input type="text" name="username" id="username" class="inputtext input_middle required"
+					value ="<?php echo isset($username) ? $username : '';?>">
 				</div>
 				<div class="col-sm-4 errorField"></div>
 			</div>
@@ -112,7 +113,7 @@
 <div class="row">
 	<div class="col-sm-12">
 		<h4>Liste des utilisateurs</h4>
-		<table class="table table-condensed table-hover"><thead>
+		<table class="table table-condensed table-hover" id="userListTable"><thead>
 			<?php
 				$attributs = get_object_vars($users[0]);
 
@@ -128,7 +129,7 @@
 						echo '<td>'.$user->$k.'</td>';
 					}
 					echo '<td>
-					<a href="'.ROOT_URL.'/User/edit/'.$user->USERNAME.'">
+					<a class="userFillFields" href="'.ROOT_URL.'/User/fillFields" value="'.$user->USERNAME.'">
 						<img src="'.HTDOCS_URL.'/images/icons/edit.png" alt="Modifier">
 					</a>
 					<a href="'.ROOT_URL.'/User/delete/'.$user->USERNAME.'" onClick="return confirm(\'Sure?\'); ">

@@ -36,6 +36,41 @@ class Model {
 		}
 	}
 
+	public function find($params, $fetch = PDO::FETCH_OBJ){
+		if(!$params)
+			return $this->findAll();
+
+		$req = "SELECT ";
+
+		//$params ['fields'] = array("f1", "f2", "f3"); OR $params['fields'] = 'f1';
+		//$params ['where'] = array("key" => "value"); OR $params['where'] = 'id>70';
+
+		if(is_array($params['fields']))
+			$req .= implode(", ", $params['fields']);
+		else
+			$req .= $params['fields'];
+
+		$req .= " FROM ".$this->table." WHERE ";
+
+		if(is_array($params['where'])){
+			$where = array();
+			foreach ($params['where'] as $field => $val) {
+				$whereString = $field."=";
+				$whereString .= is_numeric($val) ? $val : "'".$val."'";
+				$where[] = $whereString;
+			}
+			$req .= implode(" AND ", $where);
+		} else {
+			$req .= $params['where'];
+		}
+
+		
+
+		$res = self::$pdo->query($req);
+		return $res->fetchAll($fetch);
+
+	}
+
 	public function findAll(){
 		$query = "SELECT * FROM ".$this->table;
 		$res = self::$pdo->query($query);
@@ -51,6 +86,10 @@ class Model {
 
 	public function executeUpdate($requete){
 		return self::$pdo->query($requete);
+	}
+
+	public function setTable($t){
+		$this->table = $t;
 	}
 
 

@@ -66,5 +66,34 @@ class User extends Controller{
 
 	}
 
+	public function fillFields(){
+
+		header('Content-type: application/json');
+
+		if(isset($_POST['username']) AND !empty($_POST['username'])){
+			$username = $_POST['username'];
+			$json = array();
+			$json['USERNAME'] = $username;
+
+			$req = "SELECT DEFAULT_TABLESPACE, TEMPORARY_TABLESPACE, ACCOUNT_STATUS, PROFILE FROM dba_users WHERE username='".$username."'";
+
+			$params = array();
+			$params['fields'] = array("DEFAULT_TABLESPACE", "TEMPORARY_TABLESPACE", "ACCOUNT_STATUS", "PROFILE");
+			$params['where'] = array("username" => $username);
+
+			$userM = $this->loadModel("User");
+			$userM->setTable("dba_users");
+			$userInfo = $userM->find($params, PDO::FETCH_ASSOC);
+			$json = array_merge($json, $userInfo[0]);
+
+
+
+
+			echo json_encode($json);
+		}
+
+
+	}
+
 }
 ?>
