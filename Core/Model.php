@@ -2,6 +2,7 @@
 class Model {
 
 	public $connected = false;
+	public $errorMsg;
 	public $table;
 	static $pdo;
 
@@ -30,7 +31,7 @@ class Model {
 				self::$pdo = $pdo;
 				$this->connected = true;
 			} catch(PDOException $e){
-				$e->getMessage();
+				Session::setFlash($e->getMessage());
 			}
 			
 		}
@@ -44,26 +45,36 @@ class Model {
 
 		//$params ['fields'] = array("f1", "f2", "f3"); OR $params['fields'] = 'f1';
 		//$params ['where'] = array("key" => "value"); OR $params['where'] = 'id>70';
+		if(!isset($params['fields']))
+			$params['fields'] = "*";
 
 		if(is_array($params['fields']))
 			$req .= implode(", ", $params['fields']);
 		else
 			$req .= $params['fields'];
 
-		$req .= " FROM ".$this->table." WHERE ";
+		$req .= " FROM ".$this->table;
 
-		if(is_array($params['where'])){
-			$where = array();
-			foreach ($params['where'] as $field => $val) {
-				$whereString = $field."=";
-				$whereString .= is_numeric($val) ? $val : "'".$val."'";
-				$where[] = $whereString;
+		if(isset($params['where'])){
+			$req .= " WHERE ";
+			if(is_array($params['where'])){
+				$where = array();
+				foreach ($params['where'] as $field => $val) {
+					$whereString = $field."=";
+					$whereString .= is_numeric($val) ? $val : "'".$val."'";
+					$where[] = $whereString;
+				}
+				$req .= implode(" AND ", $where);
+			} else {
+				$req .= $params['where'];
 			}
-			$req .= implode(" AND ", $where);
-		} else {
-			$req .= $params['where'];
 		}
 
+		if(isset($params['order']))
+			$req .= " ORDER BY ".$params['order']; 
+
+
+		//die($req);
 		
 
 		$res = self::$pdo->query($req);

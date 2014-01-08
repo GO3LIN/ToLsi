@@ -18,6 +18,12 @@ class UserModel extends Model{
 		}
 	}
 
+	public function last($n = 20){
+		$params['where'] = 'rownum < '.$n;
+		$params['order'] = 'CREATED DESC';
+		return $this->find($params);
+	}
+
 
 }
 ?>

@@ -112,7 +112,30 @@
 
 <div class="row">
 	<div class="col-sm-12">
-		<h4>Liste des utilisateurs</h4>
+		<h4>Rechercher un utilisateur</h4>
+		<div class="widget-container widget_search">
+		    <div class="inner">
+		        <form id="searchform2" action="#" method="get">
+		            <div class="clearfix">
+		                <a class="btn" href="#"><span>Go</span></a>
+		                <div class="input_wrap">
+		                    <span class="input_icon"></span>
+		                    <input id="s2" class="inputField" type="text" value="" placeholder="Username" name="s" hidefocus="true"></input>
+		                </div>
+		            </div>
+		        </form>
+		    </div>	
+		</div>
+		<a href="#" class="btn"><span>Liste des utilisateurs</span></a>
+
+	</div>
+</div>
+
+<hr>
+
+<div class="row">
+	<div class="col-sm-12">
+		<h4>Derniers 10 utilisateurs créés :</h4>
 		<table class="table table-condensed table-hover" id="userListTable"><thead>
 			<?php
 				$attributs = get_object_vars($users[0]);

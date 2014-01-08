@@ -8,7 +8,7 @@ class Index extends Controller{
 	public function index(){
 		if(count($_SESSION)>0){
 			$user = $this->loadModel("User");
-			$users = $user->findAll();
+			$users = $user->last(10);
 			$this->setVar("users", $users);
 			$this->render("Logged");
 		}
@@ -28,6 +28,14 @@ class Index extends Controller{
 		$this->render('Login');
 
 
+	}
+
+	public function logout(){
+		//header("Content-type: application/json");
+		session_destroy();
+		unset($_SESSION);
+		unset($_POST);
+		//echo "{success: 'success'}";
 	}
 
 }

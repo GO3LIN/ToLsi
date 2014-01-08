@@ -1,11 +1,21 @@
 <!-- tabs -->
                 <div class="tabs_framed styled">
                     <div class="inner">
-                        <ul class="tabs clearfix active_bookmark1 tab_id1 bookmarks4">
+                        <ul class="tabs clearfix active_bookmark1 tab_id1 bookmarks4" id="tabsMenu">
                             <li class="active"><a style="outline: medium none;" hidefocus="true" href="#console" data-toggle="tab">Console</a></li>
                             <li><a style="outline: medium none;" hidefocus="true" href="#users" data-toggle="tab">Utilisateurs</a></li>
-                            <li><a style="outline: medium none;" hidefocus="true" href="#starred" data-toggle="tab">Starred</a></li>
-                            <li><a style="outline: medium none;" hidefocus="true" href="#archive" data-toggle="tab">Archive</a></li>
+                            <li><a style="outline: medium none;" hidefocus="true" href="#roles" data-toggle="tab">Rôles</a></li>
+                            <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Profils</a></li>
+                            <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Groupes de ressources</a></li>
+                            <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Vues</a></li>
+                            <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Vues matérialisées</a></li>
+                            <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Procédures</a></li>
+                            <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Fonctions</a></li>
+                            <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Triggers</a></li>
+                            <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Tablespaces</a></li>
+                            <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Importer</a></li>
+                            <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Exporter</a></li>
+                            <li><a style="outline: medium none;" hidefocus="true" href="#deconnexion" data-toggle="tab">Déconnexion</a></li>
                         </ul>
 
                         <div class="tab-content clearfix">
@@ -26,17 +36,15 @@
                             		include(ROOT_DIR.DS.'Views'.DS.'Users'.DS.'index.php');
                             	?>
                             </div>
-                            <div class="tab-pane fade" id="starred">
-                                <div class="tab_image"><img src="images/temp/tabimage7.png" alt=""></div>
-                                <h4>11 October</h4>
-                                <p>He made his film debut with a mirror part in Black to the Future Part II</p>
-                                <a style="outline: medium none;" hidefocus="true" href="#" class="see-more"><span>See more</span></a>
+                            <div class="tab-pane fade" id="roles">
+                                <?php
+                                    include(ROOT_DIR.DS.'Views'.DS.'Roles'.DS.'index.php');
+                                ?>
                             </div>
-                            <div class="tab-pane fade" id="archive">
-                                <div class="tab_image"><img src="images/temp/tabimage5.png" alt=""></div>
-                                <h4>14 September</h4>
-                                <p>He made his film debut with a mirror part in Black to the Future Part II</p>
-                                <a style="outline: medium none;" hidefocus="true" href="#" class="see-more"><span>See more</span></a>
+                            <div class="tab-pane fade" id="profils">
+                                <?php
+                                    include(ROOT_DIR.DS.'Views'.DS.'Profils'.DS.'index.php');
+                                ?>
                             </div>
                         </div>
                     </div>
