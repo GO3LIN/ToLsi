@@ -16,16 +16,56 @@ $(document).ready(function(){
 
 	$("#userListTable .userFillFields").click(function(e){
 		e.preventDefault();
-		$("html, body").animate({scrollTop: 0}, 3000);   
+		$("html, body").animate({scrollTop: 80}, 2000);   
 		var username = $(this).attr('value');
 		$.post("user/fillFields/", {username: username},  function(data){
 			$("#userTitle").html("Modifier un utilisateur");
 			var form = $("#userForm");
+			var expired = false;
+			var locked = false;
+			form.attr("action", "user/edit/");
 			form.find("#sendButton").val("Modifier");
 			form.find("#username").val(data.USERNAME);
+			form.find("#password").removeClass("required");
+			form.find("label[for='password']").html("Ancien mot de pass :");
+			form.find("label[for='password2']").html("Nouveau mot de pass :");
+			form.find("#password2").removeClass("required");
 			form.find("#profile").val(data.PROFILE);
 			form.find("#defaultTablespace").val(data.DEFAULT_TABLESPACE);
 			form.find("#tempTablespace").val(data.TEMPORARY_TABLESPACE);
+
+			switch(data.ACCOUNT_STATUS){
+				case 'EXPIRED':
+					expired = true;
+					break;
+				case 'LOCKED':
+					locked = true;
+					break;
+				case 'EXPIRED & LOCKED':
+					expired = true;
+					locked = true;
+					break;
+			}
+
+
+			form.find("#expiredPassword").attr('checked', expired);
+			form.find("#blockedAccount").attr('checked', locked);
+
+			if(expired)
+				form.find("label[for='expiredPassword']").addClass('checked');
+			else
+				form.find("label[for='expiredPassword']").removeClass('checked');
+			
+			if(locked)
+				form.find("label[for='blockedAccount']").addClass('checked');
+			else
+				form.find("label[for='blockedAccount']").removeClass('checked');
+
+
+			console.log(expired);
+			console.log(data.ACCOUNT_STATUS);
+
+
 		}, "json");
 	});
 });
