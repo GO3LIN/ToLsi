@@ -1,8 +1,9 @@
-<h4 id="userTitle">Ajouter un utilisateur</h4><br>
-<p>Les champ marqué d'un (*) sont obligatoire :</p>
-<div class="errors"></div>
 <div class="row">
 	<div class="col-sm-12">
+		<a href="user/liste" class="btn" style="float: right"><span>Liste des utilisateurs</span></a>
+		<h4 id="userTitle">Créer un utilisateur</h4>
+		<p>Les champs marqués d'un (*) sont obligatoires :</p>
+		
 		<form method="post" action="<?php echo ROOT_URL.'/user/add';?>" id="userForm">
 			<fieldset><legend>Information de connexion</legend>
 			<div class="row">
@@ -78,8 +79,6 @@
 		<fieldset>
 			<legend>Autres</legend>
 			<div class="row">
-			</div>
-			<div class="row">
 				<div class="col-sm-3 userLabel">
 					<label for="profile">Profil :</label>
 				</div>
@@ -88,9 +87,6 @@
 				</div>
 			</div>
 			<div class="row">
-				<!--<div class="col-sm-4 userLabel">
-					<label for="expiredPassword">Mot de pass expiré:</label>
-				</div>-->
 				<div class="col-sm-8 col-sm-offset-4">
 					 <div class="input_styled checklist"><div class="rowCheckbox checkbox-large"><div class="custom-checkbox"><input style="outline: medium none;" hidefocus="true" name="expiredPassword" id="expiredPassword" value="expiredPassword" type="checkbox"><label class="" for="expiredPassword">Mot de pass expiré</label></div></div></div>
 				</div>
@@ -102,7 +98,7 @@
 			</div>
 		</fieldset>
 		<div class="row">
-			<span class="btn btn-red link-submit" style="float: right"><input style="outline: medium none;" hidefocus="true" id="sendButton" value="Ajouter" type="submit"></span>
+			<span class="btn btn-red link-submit" style="float: right"><input style="outline: medium none;" hidefocus="true" id="sendButton" value="Créer" type="submit"></span>
 		</div>
 		</form>
 	</div>
@@ -126,7 +122,6 @@
 		        </form>
 		    </div>	
 		</div>
-		<a href="#" class="btn"><span>Liste des utilisateurs</span></a>
 
 	</div>
 </div>
@@ -135,7 +130,7 @@
 
 <div class="row">
 	<div class="col-sm-12">
-		<h4>Derniers 10 utilisateurs créés :</h4>
+		<h4>Derniers 10 utilisateurs :</h4>
 		<table class="table table-condensed table-hover" id="userListTable"><thead>
 			<?php
 				$attributs = get_object_vars($users[0]);

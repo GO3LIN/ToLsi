@@ -6,7 +6,7 @@
                             <li><a style="outline: medium none;" hidefocus="true" href="#users" data-toggle="tab">Utilisateurs</a></li>
                             <li><a style="outline: medium none;" hidefocus="true" href="#roles" data-toggle="tab">Rôles</a></li>
                             <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Profils</a></li>
-                            <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Groupes de ressources</a></li>
+                            <li><a style="outline: medium none;" hidefocus="true" href="#groupesRessources" data-toggle="tab">Groupes de ressources</a></li>
                             <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Vues</a></li>
                             <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Vues matérialisées</a></li>
                             <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Procédures</a></li>
@@ -33,17 +33,23 @@
                             </div>
                             <div class="tab-pane fade" id="users">
                             	<?php
-                            		include(ROOT_DIR.DS.'Views'.DS.'Users'.DS.'index.php');
+                            		include(ROOT_DIR.DS.'Views'.DS.'User'.DS.'index.php');
                             	?>
                             </div>
                             <div class="tab-pane fade" id="roles">
                                 <?php
-                                    include(ROOT_DIR.DS.'Views'.DS.'Roles'.DS.'index.php');
+                                    include(ROOT_DIR.DS.'Views'.DS.'Role'.DS.'index.php');
                                 ?>
                             </div>
                             <div class="tab-pane fade" id="profils">
                                 <?php
-                                    include(ROOT_DIR.DS.'Views'.DS.'Profils'.DS.'index.php');
+                                    include(ROOT_DIR.DS.'Views'.DS.'Profil'.DS.'index.php');
+                                ?>
+                            </div>
+                            <div class="tab-pane fade" id="groupesRessources">
+                                <h4>Groupes de ressources</h4>
+                                <?php
+                                    include(ROOT_DIR.DS.'Views'.DS.'Profil'.DS.'index.php');
                                 ?>
                             </div>
                         </div>

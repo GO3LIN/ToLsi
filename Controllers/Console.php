@@ -8,28 +8,30 @@ class Console extends Controller {
 	public function execute(){
 		$model = new Model();
 		$ret = $model->execute($_POST['query']);
-
-		$attributs = get_object_vars($ret[0]);
-		
-		$data = '<table class="table table-condensed table-hover"><thead>';
-		foreach($attributs as $k=>$v){
-			$data .= '<th>'.$k.'</th>';
-		}
-		$data.= '</thead><tbody>';
-
-		foreach($ret as $r){
-			$data .= '<tr>';
+		if($ret){
+			$attributs = get_object_vars($ret[0]);
+			
+			$data = '<table class="table table-condensed table-hover"><thead>';
 			foreach($attributs as $k=>$v){
-				$data.= '<td>'.$r->$k.'</td>';
+				$data .= '<th>'.$k.'</th>';
 			}
-			$data.= '</tr>';
-		}
+			$data.= '</thead><tbody>';
 
-		$data.= '</tbody></table>';
+			foreach($ret as $r){
+				$data .= '<tr>';
+				foreach($attributs as $k=>$v){
+					$data.= '<td>'.$r->$k.'</td>';
+				}
+				$data.= '</tr>';
+			}
 
-		$this->setVar("console", $data);
+			$data.= '</tbody></table>';
 
-		$this->render('Tableau');
+			$this->setVar("console", $data);
+
+			$this->render('Tableau');
+		} else 
+			header("Location :".ROOT_URL);
 	}
 
 }

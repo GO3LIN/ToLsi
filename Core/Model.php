@@ -57,6 +57,7 @@ class Model {
 
 		if(isset($params['where'])){
 			$req .= " WHERE ";
+
 			if(is_array($params['where'])){
 				$where = array();
 				foreach ($params['where'] as $field => $val) {
@@ -89,10 +90,15 @@ class Model {
 	}
 
 	public function execute($query){
-
-		$res = self::$pdo->query($query);
-		$ret = $res->fetchAll(PDO::FETCH_OBJ);
-		return $ret;
+		try {
+			$res = self::$pdo->query($query);
+			$ret = $res->fetchAll(PDO::FETCH_OBJ);
+			return $ret;
+		} catch(PDOException $e){
+			Session::setFlash($e->getMessage());
+			header("Location: ".ROOT_URL);
+		}
+		return false;
 	}
 
 	public function executeUpdate($requete){

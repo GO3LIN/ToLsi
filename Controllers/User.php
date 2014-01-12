@@ -139,5 +139,12 @@ class User extends Controller{
 		header("Location: ".ROOT_URL);
 	}
 
+	public function liste(){
+		$userM = $this->loadModel("User");
+		$users = $userM->findAll();
+		$this->setVar("users", $users);
+		$this->render("liste");
+	}
+
 }
 ?>
