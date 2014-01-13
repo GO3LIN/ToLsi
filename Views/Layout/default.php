@@ -21,6 +21,7 @@
 <link href="<?php echo HTDOCS_URL.'/'; ?>css/bootstrap.css" media="screen" rel="stylesheet">
 <link href="<?php echo HTDOCS_URL.'/'; ?>style.css" media="screen" rel="stylesheet">
 <link href="<?php echo HTDOCS_URL.'/'; ?>flashInfos.css" media="screen" rel="stylesheet">
+<link id="cusel-css" media="all" type="text/css" href="<?php echo HTDOCS_URL.'/'; ?>css/cusel.css" rel="stylesheet"></link>
 
 <!-- scripts -->
 <script src="<?php echo HTDOCS_URL.'/'; ?>js/general.js"></script>
@@ -29,8 +30,10 @@
 <!-- Include all needed stylesheets and scripts here -->
 <link href="<?php echo HTDOCS_URL.'/'; ?>css/flashInfos.css" media="screen" rel="stylesheet">
 <script src="<?php echo HTDOCS_URL.'/'; ?>js/app.js"></script>
-<link rel="stylesheet" href="css/chosen.css">
-<script src="js/jquery.chosen.min.js" type="text/javascript"></script>
+<script src="<?php echo HTDOCS_URL.'/'; ?>js/jquery.chosen.min.js" type="text/javascript"></script>
+<script src="<?php echo HTDOCS_URL.'/'; ?>js/cusel-min.js" type="text/javascript"></script>
+<script src="<?php echo HTDOCS_URL.'/'; ?>js/jquery.tools.min.js" type="text/javascript"></script>
+<script src="<?php echo HTDOCS_URL.'/'; ?>js/jquery.customInput.js" type="text/javascript"></script>
 
 
 

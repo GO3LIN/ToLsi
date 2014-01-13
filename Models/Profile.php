@@ -4,7 +4,7 @@ class ProfileModel extends Model {
 	public $table = "dba_profiles";
 	
 	public function __construct(){
-
+		parent::__construct();
 	}
 
 	public function findListe(){
