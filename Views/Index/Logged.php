@@ -7,9 +7,9 @@
                             <li><a style="outline: medium none;" hidefocus="true" href="#roles" data-toggle="tab">Rôles</a></li>
                             <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Profils</a></li>
                             <li><a style="outline: medium none;" hidefocus="true" href="#groupesRessources" data-toggle="tab">Groupes de ressources</a></li>
-                            <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Vues</a></li>
+                            <li><a style="outline: medium none;" hidefocus="true" href="#vues" data-toggle="tab">Vues</a></li>
                             <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Vues matérialisées</a></li>
-                            <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Procédures</a></li>
+                            <li><a style="outline: medium none;" hidefocus="true" href="#procedure" data-toggle="tab">Procédures</a></li>
                             <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Fonctions</a></li>
                             <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Triggers</a></li>
                             <li><a style="outline: medium none;" hidefocus="true" href="#profils" data-toggle="tab">Tablespaces</a></li>
@@ -44,6 +44,16 @@
                             <div class="tab-pane fade" id="profils">
                                 <?php
                                     include(ROOT_DIR.DS.'Views'.DS.'Profil'.DS.'index.php');
+                                ?>
+                            </div>                            
+                            <div class="tab-pane fade" id="vues">
+                                <?php
+                                    include(ROOT_DIR.DS.'Views'.DS.'Vue'.DS.'index.php');
+                                ?>
+                            </div>
+                            <div class="tab-pane fade" id="procedures">
+                                <?php
+                                    include(ROOT_DIR.DS.'Views'.DS.'Vue'.DS.'index.php');
                                 ?>
                             </div>
                             <div class="tab-pane fade" id="groupesRessources">
