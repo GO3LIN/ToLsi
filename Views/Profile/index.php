@@ -114,36 +114,36 @@
 						<label for="pLockTime">Durée de verrou du compte<br><small>(PASSWORD_LOCK_TIME)</small></label>
 					</div>
 					<div class="col-sm-5">
-						<input type="text" name="pLockTime" id="pLockTime" class="inputtext input_middle">
+						<input type="text" name="pLockTime" id="pLockTime" class="inputtext input_middle" value="1">
 					</div>
-					<div class="col-sm-3"><small><em>En jours<br>(Par défault: 1 Jour)</em></small></div>
+					<div class="col-sm-3"><small><em>En jours</em></small></div>
 				</div>
 				<div class="row">
 					<div class="col-sm-4 userLabel">
 						<label for="pLifeTime">Durée de vie du mot de pass<br><small>(PASSWORD_LIFE_TIME)</small></label>
 					</div>
 					<div class="col-sm-5">
-						<input type="text" name="pLifeTime" id="pLifeTime" class="inputtext input_middle">
+						<input type="text" name="pLifeTime" id="pLifeTime" class="inputtext input_middle" value="180">
 					</div>
-					<div class="col-sm-3"><small><em>En jours<br>(Par défaut: 180 jours)</em></small></div>
+					<div class="col-sm-3"><small><em>En jours</em></small></div>
 				</div>
 				<div class="row">
 					<div class="col-sm-4 userLabel">
 						<label for="pReuseTime">Mot de pass expire après<br><small>(PASSWORD_REUSE_TIME)</small></label>
 					</div>
 					<div class="col-sm-5">
-						<input type="text" name="pReuseTime" id="pReuseTime" class="inputtext input_middle">
+						<input type="text" name="pReuseTime" id="pReuseTime" class="inputtext input_middle" value="UNLIMITED">
 					</div>
-					<div class="col-sm-3"><small><em>Jours<br>(Par défaut: UNLIMITED)</em></small></div>
+					<div class="col-sm-3"><small><em>Jours</em></small></div>
 				</div>
 				<div class="row">
 					<div class="col-sm-4 userLabel">
 						<label for="pReuseMax">Possibilité de réutiliser le mot de pass apres<br><small>(PASSWORD_REUSE_MAX)</small></label>
 					</div>
 					<div class="col-sm-5">
-						<input type="text" name="pReuseMax" id="pReuseMax" class="inputtext input_middle">
+						<input type="text" name="pReuseMax" id="pReuseMax" class="inputtext input_middle" value="UNLIMITED">
 					</div>
-					<div class="col-sm-3"><small><em>Changements de mot de pass<br>(Par défaut: UNLIMITED)</em></small></div>
+					<div class="col-sm-3"><small><em>Changements de mot de pass</em></small></div>
 				</div>
 				<div class="row">
 					<div class="col-sm-4 userLabel">
@@ -186,7 +186,7 @@
 						echo '<td>'.$profile->$k.'</td>';
 					}
 					echo '<td>
-					<a class="userFillFields" href="'.ROOT_URL.'/Profile/fillFields" value="'.$profile->PROFILE.'">
+					<a class="fillFields" href="'.ROOT_URL.'/Profile/fillFields" value="'.$profile->PROFILE.'">
 						<img src="'.HTDOCS_URL.'/images/icons/edit.png" alt="Modifier">
 					</a>
 					<a href="'.ROOT_URL.'/Profile/delete/'.$profile->PROFILE.'" onClick="return confirm(\'Sure?\'); ">

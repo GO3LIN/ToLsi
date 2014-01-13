@@ -13,6 +13,15 @@ $(document).ready(function(){
 		$("#flashAlert").slideUp(1000);
 	});
 
+	$("#profileListTable .fillFields").click(function(e){
+		e.preventDefault();
+		$("html, body").animate({scrollTop: 120}, 2000); 
+		var profile = $(this).attr("value");
+		$.post("profile/fillFields", {profile: profile}, function(data){
+			console.log(data);
+		}, "json");
+
+	});
 
 	$("#userListTable .userFillFields").click(function(e){
 		e.preventDefault();
