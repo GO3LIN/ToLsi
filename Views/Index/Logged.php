@@ -43,7 +43,7 @@
                             </div>
                             <div class="tab-pane fade" id="profils">
                                 <?php
-                                    include(ROOT_DIR.DS.'Views'.DS.'Profil'.DS.'index.php');
+                                    include(ROOT_DIR.DS.'Views'.DS.'Profile'.DS.'index.php');
                                 ?>
                             </div>                            
                             <div class="tab-pane fade" id="vues">

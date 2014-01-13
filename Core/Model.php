@@ -14,24 +14,30 @@ class Model {
 	public function __construct(){
 		if(count($_SESSION)>0){
 			//echo 'Connexion à la BDD';
-			extract($_SESSION);
-			try {
-				$tns = " 
-				(DESCRIPTION =
-				    (ADDRESS_LIST =
-				      (ADDRESS = (PROTOCOL = TCP)(HOST = ".$host.")(PORT = ".$port."))
-				    )
-				    (CONNECT_DATA =
-				      (SERVICE_NAME = ".$sid.")
-				    )
-				  )
-		       ";
-				$pdo = new PDO("oci:dbname=".$tns,$user,$password);
-				$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				self::$pdo = $pdo;
-				$this->connected = true;
-			} catch(PDOException $e){
-				Session::setFlash($e->getMessage());
+			if(isset($_SESSION['host']) && isset($_SESSION['port']) && isset($_SESSION['sid']) && isset($_SESSION['user']) && isset($_SESSION['password'])){
+				extract($_SESSION);
+				try {
+					$tns = " 
+					(DESCRIPTION =
+					    (ADDRESS_LIST =
+					      (ADDRESS = (PROTOCOL = TCP)(HOST = ".$host.")(PORT = ".$port."))
+					    )
+					    (CONNECT_DATA =
+					      (SERVICE_NAME = ".$sid.")
+					    )
+					  )
+			       ";
+					$pdo = new PDO("oci:dbname=".$tns,$user,$password);
+					$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+					self::$pdo = $pdo;
+					$this->connected = true;
+				} catch(PDOException $e){
+					Session::setFlash($e->getMessage());
+				}
+			}
+			else {
+				Session::deconnexion();
+				header("Location: ".ROOT_URL);
 			}
 			
 		}
@@ -73,7 +79,8 @@ class Model {
 
 		if(isset($params['order']))
 			$req .= " ORDER BY ".$params['order']; 
-
+		if(isset($params['group']))
+			$req .= " GROUP BY ".$params['group'];
 
 		//die($req);
 		

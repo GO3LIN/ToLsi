@@ -8,14 +8,19 @@ class Index extends Controller{
 	public function index(){
 		if(count($_SESSION)>0){
 			// Derniers 10 utilisateurs
-			$user = $this->loadModel("User");
-			$users = $user->last(10);
+			$userM = $this->loadModel("User");
+			$users = $userM->last(10);
 			$this->setVar("users", $users);
 
-			// Derniers 10 roles
-			$role = $this->loadModel("Role");
-			$roles = $role->findAll();
+			// Liste des roles
+			$roleM = $this->loadModel("Role");
+			$roles = $roleM->findAll();
 			$this->setVar("roles", $roles);
+
+			// Liste des profils
+			$profileM = $this->loadModel("Profile");
+			$profiles = $profileM->findListe();
+			$this->setVar("profiles", $profiles);
 
 			 
 			$this->render("Logged");
