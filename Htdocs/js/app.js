@@ -18,7 +18,65 @@ $(document).ready(function(){
 		$("html, body").animate({scrollTop: 120}, 2000); 
 		var profile = $(this).attr("value");
 		$.post("profile/fillFields", {profile: profile}, function(data){
-			console.log(data);
+			$("#titleProfile").html("Modifier un profil");
+			var form = $("#profileForm");
+			form.attr("action", "profile/edit");
+			form.find("#sendButton").val("Modifier");
+			form.find("#nom").val(data.NOM);
+			for (var key in data){
+				switch(data[key].RESOURCE_NAME){
+					case 'SESSIONS_PER_USER':
+						form.find("#sessPerUser").val(data[key].LIMIT);
+					break;
+					case 'CPU_PER_SESSION':
+						form.find("#cpuPerSession").val(data[key].LIMIT);
+					break;
+					case 'CPU_PER_CALL':
+						form.find("#cpuPerCall").val(data[key].LIMIT);
+					break;
+					case 'CONNECT_TIME':
+						form.find("#connectTime").val(data[key].LIMIT);
+					break;
+					case 'IDLE_TIME':
+						form.find("#idleTime").val(data[key].LIMIT);
+					break;
+					case 'LOGICAL_READS_PER_SESSION':
+						form.find("#lReadsPerSession").val(data[key].LIMIT);
+					break;
+					case 'LOGICAL_READS_PER_CALL':
+						form.find("#lReadsPerCall").val(data[key].LIMIT);
+					break;
+					case 'FAILED_LOGIN_ATTEMPTS':
+						form.find("#failedLogin").val(data[key].LIMIT);
+					break;
+					case 'PRIVATE_SGA':
+						form.find("#privateSga").val(data[key].LIMIT);
+					break;
+					case 'PASSWORD_LOCK_TIME':
+						form.find("#pLockTime").val(data[key].LIMIT);
+					break;
+					case 'PASSWORD_LIFE_TIME':
+						form.find("#pLifeTime").val(data[key].LIMIT);
+					break;
+					case 'PASSWORD_REUSE_TIME':
+						form.find("#pReuseTime").val(data[key].LIMIT);
+					break;
+					case 'PASSWORD_REUSE_MAX':
+						form.find("#pReuseMax").val(data[key].LIMIT);
+					break;
+					case 'PASSWORD_GRACE_TIME':
+						form.find("#pGraceTime").val(data[key].LIMIT);
+					break;
+					case 'PASSWORD_VERIFY_FUNCTION':
+						form.find("#pVerifyFunc").val(data[key].LIMIT);
+					break;
+					case 'COMPOSITE_LIMIT':
+						form.find("#compositeLimit").val(data[key].LIMIT);
+					break;
+				}
+			}
+
+			//console.log(data);
 		}, "json");
 
 	});

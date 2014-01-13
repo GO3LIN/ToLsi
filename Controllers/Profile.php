@@ -111,6 +111,7 @@ class Profile extends Controller {
 			$params = array();
 			$params['fields'] = array("RESOURCE_NAME", "LIMIT");
 			$params['where'] = array("profile" => $profile);
+			$params['order'] = "RESOURCE_NAME";
 
 			$profileM = $this->loadModel("Profile");
 			$profileInfo = $profileM->find($params, PDO::FETCH_ASSOC);

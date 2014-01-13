@@ -1,8 +1,8 @@
 <div class="row">
 	<div class="col-sm-12">
-		<h4>Créer un profil :</h4>
+		<h4 id="titleProfile">Créer un profil :</h4>
 		<p>Les champs marqués d'un (*) sont obligatoires :</p>
-		<form method="post" action="profile/add" id="roleForm">
+		<form method="post" action="profile/add" id="profileForm">
 			<div class="row">
 				<div class="col-sm-3 userLabel">
 					<label for="nom">(*) Nom :</label>
@@ -24,6 +24,7 @@
 					</div>
 					<div class="col-sm-3 errorField"></div>
 				</div>
+
 				<div class="row">
 					<div class="col-sm-4 userLabel">
 						<label for="cpuPerSession">CPU time / session <br><small>(CPU_PER_SESSION)</small></label>
@@ -168,6 +169,8 @@
 				<span class="btn btn-red link-submit" style="float: right"><input style="outline: medium none;" hidefocus="true" id="sendButton" value="Créer" type="submit"></span>
 			</div>
 		</form>
+		
+		
 
 		<h4>Liste des profils</h4>
 		<table class="table table-condensed table-hover" id="profileListTable"><thead>
