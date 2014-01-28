@@ -1,12 +1,43 @@
 $(document).ready(function(){
+
+
+	$("#login_form #login_avancee_btn").click(function(e){
+		e.preventDefault();
+		$("#login_form .login_avancee").fadeToggle(1000);
+	});
+
+
 	// Script pour ajouter des quotas à la volée aux utilisateurs
 	var i = 1;
 	$("#ajouterQuota").click(function(){
 		var quota = '<div class="row"><div class="col-sm-3 userLabel"><label for="quota'+i+'">Quota (en Mo):</label></div><div class="col-sm-2"><input type="text" name="quota'+i+'" id="quota'+i+'" class="inputtext input_middle required"></div><div class="col-sm-3 userLabel"><label for="onTablespace'+i+'">Sur le tablespace:</label></div><div class="col-sm-4"><input type="text" name="onTablespace'+i+'" id="onTablespace'+i+'" class="inputtext input_middle required"></div></div>';
-		$("#quotas .row").eq(-2).after(quota).hide().slideDown(1000);
+		$("#quotas .row").eq(-2).after(quota).hide().slideDown(500);
 		i++;
 		return false;
 	});
+
+	var startCol = 4;
+	$("#addCol").click(function(e){
+		e.preventDefault();
+		var col = '<div class="col"><div class="row"><div class="col-sm-3"><input style="outline: medium none;" hidefocus="true" name="nomCol'+startCol+'" placeholder="Nom de la colonne" type="text"></div><div class="col-sm-3"><div class="cusel select_styled" id="cuselFrame-cuSel-1" style="width:0px" tabindex="0"><div class="cuselFrameRight"></div><div class="cuselText">Type</div><div style="display: none; visibility: visible;" class="cusel-scroll-wrap"><div class="cusel-scroll-pane" id="cuselscroll-cuSel-1"><span class="cuselActive first" val="">Type</span><span val="VARCHAR2">VARCHAR2</span><span val="NUMBER">NUMBER</span><span val="DATE">DATE</span><span val="CLOB">CLOB</span><span class="last" val="BLOB">BLOB</span></div></div><input id="cuSel-1" name="typeCol'+startCol+'" value="" type="hidden"></div></div><div class="col-sm-2"><input style="outline: medium none;" hidefocus="true" name="typeCol'+startCol+'" placeholder="Taille" type="text"></div><div class="col-sm-2 input_styled" style="padding-top: 5px"><div class="custom-checkbox"><input style="outline: medium none;" hidefocus="true" name="notNull'+startCol+'" id="notNull'+startCol+'" value="notNull'+startCol+'" type="checkbox"><label for="notNull'+startCol+'">NOT NULL</label></div></div><div class="col-sm-2 input_styled" style="padding-top: 5px"><div class="custom-checkbox"><input style="outline: medium none;" hidefocus="true" name="primary'+startCol+'" id="primary'+startCol+'" value="primary'+startCol+'" type="checkbox"><label for="primary'+startCol+'">PRIMARY</label></div></div></div><div class="deleteCol"><a href="#" class="deleteColButton"><img src="images/icons/delete.png"></a></div></div>';
+		$("#structureTable .col:last").after(col).hide().slideDown(500);
+		startCol++;
+	});
+
+	$("#structureTable .col").each(function(){
+		$(this).mouseenter(function(){
+			$(this).find(".deleteCol").show(300);
+		});
+	});
+
+	$("#structureTable .col").mouseleave(function(){
+		$(this).find(".deleteCol").hide(300);
+	});
+	$("#structureTable .col .deleteColButton").click(function(){
+		$(this).parent().parent(".col").slideUp(500, function(){ $(this).remove(); });
+	});
+
+
 
 	$("#closeButton").click(function(e){
 		e.preventDefault();
@@ -210,7 +241,7 @@ $(document).ready(function(){
 	function paginateTable(table){
 		table.each(function() {
 		    var currentPage = 0;
-		    var numPerPage = 10;
+		    var numPerPage = 50;
 		    var $table = $(this);
 		    $table.bind('repaginate', function() {
 		        $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();

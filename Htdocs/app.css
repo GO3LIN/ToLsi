@@ -1,0 +1,9 @@
+.deleteCol{
+	position: absolute;
+	right: 0;
+	margin-top: -35px;
+	display: none;
+}
+.login_avancee {
+	display: none;
+}

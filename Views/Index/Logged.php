@@ -13,6 +13,7 @@
                             <li><a style="outline: medium none;" hidefocus="true" href="#Fonction" data-toggle="tab">Fonctions</a></li>
                             <li><a style="outline: medium none;" hidefocus="true" href="#Trigger" data-toggle="tab">Triggers</a></li>
                             <li><a style="outline: medium none;" hidefocus="true" href="#Tablespace" data-toggle="tab">Tablespaces</a></li>
+                            <li><a style="outline: medium none;" hidefocus="true" href="#Tables" data-toggle="tab">Tables</a></li>
                             <li><a style="outline: medium none;" hidefocus="true" href="#Importer" data-toggle="tab">Importer</a></li>
                             <li><a style="outline: medium none;" hidefocus="true" href="#Exporter" data-toggle="tab">Exporter</a></li>
                             <li><a style="outline: medium none;" hidefocus="true" href="#deconnexion" data-toggle="tab">Déconnexion</a></li>
@@ -74,12 +75,17 @@
                             </div>
                             <div class="tab-pane fade" id="Trigger">
                                 <?php
-                                    include(ROOT_DIR.DS.'Views'.DS.'Trriger'.DS.'index.php');
+                                    include(ROOT_DIR.DS.'Views'.DS.'Triger'.DS.'index.php');
                                 ?>
                             </div>
                             <div class="tab-pane fade" id="Tablespace">
                                 <?php
                                     include(ROOT_DIR.DS.'Views'.DS.'Tablespace'.DS.'index.php');
+                                ?>
+                            </div>
+                            <div class="tab-pane fade" id="Tables">
+                                <?php
+                                    include(ROOT_DIR.DS.'Views'.DS.'Table'.DS.'index.php');
                                 ?>
                             </div>
                             <div class="tab-pane fade" id="Importer">

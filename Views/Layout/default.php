@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE HTML>
 <!--[if lt IE 7 ]><html lang="en" class="no-js ie6"> <![endif]-->
 <!--[if IE 7 ]><html lang="en" class="no-js ie7"> <![endif]-->
 <!--[if IE 8 ]><html lang="en" class="no-js ie8"> <![endif]-->
 <!--[if IE 9 ]><html lang="en" class="no-js ie9"> <![endif]-->
 <!--[if (gt IE 9)|!(IE)]><!--><html lang="en" class="no-js"> <!--<![endif]-->
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="author" content="">
 <meta name="keywords" content="">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -20,6 +20,7 @@
 <!-- Style CSS -->
 <link href="<?php echo HTDOCS_URL.'/'; ?>css/bootstrap.css" media="screen" rel="stylesheet">
 <link href="<?php echo HTDOCS_URL.'/'; ?>style.css" media="screen" rel="stylesheet">
+<link href="<?php echo HTDOCS_URL.'/'; ?>app.css" media="screen" rel="stylesheet">
 <link href="<?php echo HTDOCS_URL.'/'; ?>flashInfos.css" media="screen" rel="stylesheet">
 <link id="cusel-css" media="all" type="text/css" href="<?php echo HTDOCS_URL.'/'; ?>css/cusel.css" rel="stylesheet"></link>
 

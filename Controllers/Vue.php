@@ -21,7 +21,17 @@ class Vue extends Controller {
 	}
 
 	public function liste(){
-		
+		$vueM = $this->loadModel("Vue");
+		$p = array();
+		$p['fields']= array("owner", "view_name", "text");
+		try {
+			@$vues = $vueM->find($p);
+			$this->setVar("vues", $vues);
+			$this->render("liste");
+		} catch(PDOException $e){
+			Session::setFlash($e->getMessage());
+			header("Location: ".ROOT_URL);
+		}
 	}
 
 }
