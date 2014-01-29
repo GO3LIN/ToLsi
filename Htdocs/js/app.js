@@ -49,6 +49,7 @@ $(document).ready(function(){
 		$("html, body").animate({scrollTop: 120}, 2000); 
 		var profile = $(this).attr("value");
 		$.post("profile/fillFields", {profile: profile}, function(data){
+			console.log(data);
 			$("#titleProfile").html("Modifier un profil");
 			var form = $("#profileForm");
 			form.attr("action", "profile/edit");

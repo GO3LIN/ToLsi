@@ -1,8 +1,8 @@
 <div class="row">
 	<div class="col-sm-12">
-		<h4>Creer un profil :</h4>
+		<h4 id="titleProfile">Creer un profil :</h4>
 		<p>Les champs marques d'un (*) sont obligatoires :</p>
-		<form method="post" action="profile/add" id="roleForm">
+		<form method="post" action="profile/add" id="profileForm">
 			<div class="row">
 				<div class="col-sm-3 userLabel">
 					<label for="nom">(*) Nom :</label>
